@@ -15,10 +15,7 @@
   - [view just the target](#view-just-the-target)
   - [capture WPA2 handshake plus deauthenticate](#capture-WPA2-handshake-plus-deauthenticate)
   - [cracking the handshake](#cracking-the-handshake)
-  - [](#)
-  - [](#)
-  - [](#)
-  - [](#)
+
   
   
 
