@@ -73,7 +73,7 @@ plsu you can see clients connected to the network
 ### capture WPA2 handshake plus deauthenticate
 now you will capture the WPA2 handshake. type:
 ```
-sudo airodump-ng -w <name of the file you want to name for the capture> --bssid <BSSID> <interface>
+sudo airodump-ng -w <name of the file you want to name for the capture> -c <channel> --bssid <BSSID> <interface>
 ```
 press enter
 then at the same time after entered the capture and letting it go we will go on and open a second window/terminal we will deauthenticate clients from the network by typing:
