@@ -88,7 +88,7 @@ then after a while the handshake should be captured
 we should have a file which ends with ".pcap" 
 we have to put the adapter which is on monitor mode back to manage mode by typing: 
 ```
-sudo airomon-ng stop <interface>
+sudo airmon-ng stop <interface>
 ``` 
 now its time to crack the .pcap file
 ```
