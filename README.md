@@ -8,6 +8,7 @@
   - [airmon ng](#airmon-ng)
   - [airodump ng](#airodump-ng)
   - [wifite](#wifite)
+- [tips and tricks and one liners etc](#tips-and-tricks-and-one-liners-etc)
 - [cracking manualy with aircrack tools](#cracking-manualy-with-aircrack-tools)
   - [kill processes](#kill-processes)
   - [interface to monitor mode](#interface-to-monitor-mode)
@@ -38,7 +39,23 @@ https://cdon.se/hemelektronik/alfa-awus036ach-c-p85144443?gclid=Cj0KCQjwof6WBhD4
 ## airodump-ng
   
 ## wifite
-  
+
+## tips and tricks and one liners etc
+
+find all wifis in a cmd (You will see a list of WLAN profiles stored on the PC.)
+```
+NETSH WLAN SHOW PROFILE 
+```
+
+see the wifi passwords in clear text. look at the "key content" part
+```
+NETSH WLAN SHOW PROFILE <wifi> KEY=CLEAR 
+```
+powershell one-liner command to dump all wifi passwords at once
+```
+(netsh wlan show profiles) | Select-String “\:(.+)$” | %{$name=$_.Matches.Groups[1].Value.Trim(); $_} | %{(netsh wlan show profile name=”$name” key=clear)} | Select-String “Key Content\W+\:(.+)$” | %{$pass=$_.Matches.Groups[1].Value.Trim(); $_} | %{[PSCustomObject]@{ PROFILE_NAME=$name;PASSWORD=$pass }} | Format-Table -AutoSize
+```
+
 ## cracking manualy with aircrack tools
 ### kill processes
 killing the processes that may interfere
