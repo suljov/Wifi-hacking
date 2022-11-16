@@ -51,7 +51,7 @@ see the wifi passwords in clear text. look at the "key content" part
 ```
 NETSH WLAN SHOW PROFILE <wifi> KEY=CLEAR 
 ```
-powershell/cmd one-liner command to dump all wifi passwords at once
+powershell/cmd one-liner command to dump all wifi (that is available) passwords at once
 ```
 (netsh wlan show profiles) | Select-String “\:(.+)$” | %{$name=$_.Matches.Groups[1].Value.Trim(); $_} | %{(netsh wlan show profile name=”$name” key=clear)} | Select-String “Key Content\W+\:(.+)$” | %{$pass=$_.Matches.Groups[1].Value.Trim(); $_} | %{[PSCustomObject]@{ PROFILE_NAME=$name;PASSWORD=$pass }} | Format-Table -AutoSize
 ```
