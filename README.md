@@ -55,6 +55,10 @@ powershell/cmd one-liner command to dump all wifi (that is available) passwords 
 ```
 (netsh wlan show profiles) | Select-String “\:(.+)$” | %{$name=$_.Matches.Groups[1].Value.Trim(); $_} | %{(netsh wlan show profile name=”$name” key=clear)} | Select-String “Key Content\W+\:(.+)$” | %{$pass=$_.Matches.Groups[1].Value.Trim(); $_} | %{[PSCustomObject]@{ PROFILE_NAME=$name;PASSWORD=$pass }} | Format-Table -AutoSize
 ```
+obs add this to make the output to a text file
+```
+| Format-Table -AutoSize | Out-File $env:USERPROFILE\Desktop\Log.txt
+```
 
 ## cracking manualy with aircrack tools
 ### kill processes
