@@ -81,7 +81,7 @@ then you should find the wifi you want to target and write up
 ### view just the target
 to see just the target type:
 ```
-sudo airodump-ng <interface> -d <BSSID>
+sudo airodump-ng <interface> --bssid <BSSID>
 ```
 then you can see info about the target
 plsu you can see clients connected to the network
